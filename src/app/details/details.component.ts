@@ -29,6 +29,7 @@ ngOnInit() {
   refresh() {
     this.movies.getDetails(this.value).subscribe(data => {
       this.data = data;
+      console.log(data)
     })
   }
 
