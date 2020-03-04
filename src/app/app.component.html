@@ -1,27 +1,46 @@
+<nav class="navbar text-light bg-dark justify-content-between">
+    <h2>Angular Movie App</h2>
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fcf%2FAngular_full_color_logo.svg%2F1200px-Angular_full_color_logo.svg.png&f=1&nofb=1" alt="angular icon" width="50" height="50">
+</nav>
+  
   <!-- This now goes to another "page" localhost/contact-us -->
   <router-outlet></router-outlet>
 
-
-  <h1>{{movie.Title | lowercase | ucfirst}}</h1>
-
-<img [src]="movie.Poster"/>
-
-<form [formGroup]="myForm" >
-  <div>
-    <label for="name">Search movies</label>
-    <input id="name" type="text" formControlName="name" (keyup)="onKeyUp($event, 'dante')" (keydown)="onKeyDown($event)" (keypress)="onKeyPress($event)">
-    <!-- When we start typing into the address field keep an eye out for these actions -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="media">
+            <img [src]="movie.Poster" class="img-thumbnail col-2">
+            <div class="media-body ml-4">
+              <h4 class="text-uppercase">{{movie.Title | lowercase | ucfirst}}</h4>
+              <p class="lead">I like this movie. Why don't you search for one?</p>
+            </div>
+        </div>
+    </div>
   </div>
-  <button (click)="search()" class="button" type="submit">Search</button>
-</form>
 
-<div *ngIf="isDone">
-    <div class="row">
-      <div *ngFor="let movie of movies">
-            <img [src]="movie.Poster">
-            <h4>{{movie.Title}}</h4>
-            <h5>{{movie.Year}}</h5>
-            <button id="btnDetails" value={{movie.imdbID}} (click)="goDetails(movie)" class="button" type="button">Details</button>
+  <form [formGroup]="myForm" class="d-flex justify-content-center">
+    <div class="form-row align-items-center">
+        <label for="name" class="display-4">Search movies</label>
+        <input id="name" class="form-control my-3" type="text" formControlName="name" (keyup)="onKeyUp($event, 'dante')" (keydown)="onKeyDown($event)" (keypress)="onKeyPress($event)">
+    <!-- When we start typing into the address field keep an eye out for these actions -->
+        <button (click)="search()" class="button" type="submit" class="btn btn-primary px-5">Search</button>
+    </div>
+  </form>
+
+  <div *ngIf="isDone" class="row d-flex justify-content-center mb-3">
+    <div *ngFor="let movie of movies" class="card bg-dark text-light col-md-2 mx-3 my-3">
+      <img class="card-img-top mt-3" [src]="movie.Poster" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{movie.Title}}</h5>
+        <p class="card-text">{{movie.Year}}</p>
+        <p class="card-text"><small class="text-muted">{{movie.Genre}}</small></p>
+        <button id="btnDetails" value={{movie.imdbID}} (click)="goDetails(movie)" class="btn btn-primary" type="button">Details</button>
       </div>
     </div>
   </div>
+
+  <footer class="bg-light mt-auto py-3 mt-5">
+    <div class="container">
+        <span class="text-muted">Jessica Everington</span>
+    </div>
+</footer>
