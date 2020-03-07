@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit {
 
 ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.value = params.get('value');
+      this.value = params.get('id');
 
       this.refresh();
     });

@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
       // The path name is what will be in the URL
-  {
-    path: 'details',
-    component: DetailsComponent
-  },
-  {
-    path: 'details/:id',
-    component: DetailsComponent,
-    data : {what : 'hi'}
-  }
+        { 
+            path: '', 
+            component: SearchComponent 
+        },
+        {
+            path: 'details/:id',
+            component: DetailsComponent,
+        },
 ];
 
 @NgModule({
