@@ -80,6 +80,7 @@ export class SearchComponent implements OnInit {
         })
       }
   
+      // probably don't need these anymore...
       onKeyUp(event: any, data:string) {
         console.log( `Key Up: ${event.target.value} Data: ${data}`);
       }
@@ -89,7 +90,7 @@ export class SearchComponent implements OnInit {
       onKeyPress(event: any) {
         console.log( `Key Press: ${event.target.value}`);
       }
-  
+  // well, you do need this to go to the details page
       goDetails(data) {
           this.router.navigate(['/details', data.imdbID]);
         }

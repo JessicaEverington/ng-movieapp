@@ -8,6 +8,7 @@ const routes: Routes = [
         { 
             path: '', 
             component: SearchComponent 
+            // path '' is home and we're making the SearchComponent the default - doesn't need to be it's own page
         },
         {
             path: 'details/:id',
